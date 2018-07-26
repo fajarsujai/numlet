@@ -8,6 +8,6 @@ class Login extends CI_Controller {
 			"p_title" 	=> "Login | Sistem Informasi Surat Keluar",
 			"p_content"	=> "pages/plogin" 
 		];
-		$this->load->view('layout',$data);
+		$this->load->view('layout/layout_form',$data);
 	}
 }

@@ -1,41 +1,13 @@
-<body class="hold-transition login-page">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="../../index2.html"><b>Sistem Informasi Manajemen</b>Surat Keluar</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-      <p class="login-box-msg">Sign in untuk memulai session</p>
+<div class="container">
 
-      <form action="../../index2.html" method="post">
-        <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email">
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="row">
-          <div class="col-xs-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox"> Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="password" class="input-block-level" placeholder="Password">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
       </form>
-      <!-- /.social-auth-links -->
-
-      <a href="#">I forgot my password</a><br>
-      <a href="register.html" class="text-center">Register a new membership</a>
 
     </div>
-    <!-- /.login-box-body -->
-  </div>
