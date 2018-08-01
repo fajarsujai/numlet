@@ -7,7 +7,7 @@ class Register extends CI_Controller {
 	 $this->load->helper(array('form', 'url'));
 	 $this->load->library(array('session', 'form_validation', 'email'));
 	 $this->load->database();
-	 $this->load->model('user_model');
+	 $this->load->model('register_model');
 		}
 
 
@@ -24,10 +24,13 @@ class Register extends CI_Controller {
    public function registration()
    {
     //validate input value with form validation class of codeigniter
-    $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
-    $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[tb_user.email]');
+    $this->form_validation->set_rules('nama_user', 'Nama Lengkap', 'required');
+    $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[t_n_usr.email]');
     $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
     $this->form_validation->set_rules('konfirmasi_password', 'Password Confirmation', 'required|matches[password]');
+		$this->form_validation->set_rules('nip', 'NIP', 'required');
+		$this->form_validation->set_rules('departemen', 'Departemen', 'required');
+		$this->form_validation->set_rules('jabatan', 'Jabatan', 'required');
 		$this->form_validation -> set_message ( 'required' ,  'Anda Tidak Boleh Mengosongkan Field!' );
 		$this->form_validation -> set_message ( 'is_unique' ,  'Email Sudah Terpakai!' );
 		$this->form_validation -> set_message ( 'matches' ,  'Password Tidak Sama!' );
@@ -40,23 +43,29 @@ class Register extends CI_Controller {
       }
       else
       {
-        $nama_lengkap = $_POST['nama_lengkap'];
+        $nama_user = $_POST['nama_user'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $passhash = hash('md5', $password);
+				$nip = $_POST['nip'];
+				$departemen = $_POST['departemen'];
+				$jabatan = $_POST['jabatan'];
         //md5 hashing algorithm to decode and encode input password
         //$salt    = uniqid(rand(10,10000000),true);
      $saltid   = md5($email);
      $status   = 0;
 
 		 //memasukan data ke database
-     $data = array('nama_lengkap' => $nama_lengkap,
+     $data = array('nama_user' => $nama_user,
          'email' => $email,
          'password' => $passhash,
+				 'nip' => $nip,
+				 'departemen' => $departemen,
+				 'jabatan' => $jabatan,
          'status' => $status);
 
 
-     if($this->user_model->insertuser($data))
+     if($this->register_model->insertuser($data))
      {
       if($this->sendemail($email, $saltid))
       {
@@ -102,7 +111,7 @@ class Register extends CI_Controller {
 
     public function confirmation($key)
     {
-      if($this->user_model->verifyemail($key))
+      if($this->register_model->verifyemail($key))
       {
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your Email Address is successfully verified!</div>');
         redirect(base_url());
