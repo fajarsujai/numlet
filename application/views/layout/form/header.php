@@ -11,5 +11,15 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="<?php echo base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <style>
+      .notify-alert {
+        margin-bottom: 0px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 30%;
+        height: 20px;
+      }
+    </style>
   </head>
   <body id="login">
