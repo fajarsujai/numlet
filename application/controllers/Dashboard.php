@@ -6,7 +6,28 @@ class Dashboard extends CI_Controller {
 	{
 		$data = [
 			"p_title" 	=> "Dashboard | Sistem Informasi Surat Keluar",
-			"p_content"	=> "pages/pdashboard" 
+			"p_content"	=> "pages/pdashboard",
+			"n_active"  => "dashboard"
+		];
+		$this->load->view('layout/layout_dashboard',$data);
+	}
+	public function mastersurat()
+	{
+		$data = [
+			"p_title" 	=> "Dashboard | Sistem Informasi Surat Keluar",
+			"p_content"	=> "pages/pmastersurat",
+			"p_datatable" => "component/cmastersurat_dt" ,
+			"n_active"  => "mastersurat"
+		];
+		$this->load->view('layout/layout_dashboard',$data);
+	}
+	public function masteruser()
+	{
+		$data = [
+			"p_title" 	=> "Dashboard | Sistem Informasi Surat Keluar",
+			"p_content"	=> "pages/pmasteruser",
+			"p_datatable" => "component/cmasteruser_dt" ,
+			"n_active"  => "masteruser"
 		];
 		$this->load->view('layout/layout_dashboard',$data);
 	}

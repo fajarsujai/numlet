@@ -9,12 +9,12 @@
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
                         <li class="dropdown">
-                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Vincent Gabriel <i class="caret"></i>
+                            <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> User <i class="caret"></i>
 
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a tabindex="-1" href="#">Profile</a>
+                                    <a tabindex="-1" href="<?php echo base_url(); ?>profil">Profile</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
