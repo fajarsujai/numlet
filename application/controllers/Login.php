@@ -43,15 +43,15 @@ class Login extends CI_Controller {
 				"email" => $email,
 				"password" => $password
 			];
-			if($this->login_model->login_process($data)->num_rows > 0)
+			if($this->login_model->login_process($data)->num_rows() > 0)
 			{
-				$dt = $this->login_model->login_process($data)->fetch_array();
+				$dt = $this->login_model->login_process($data)->result_array();
 				if($dt[0]['status'] == 0 )
 				{
 					return $this->notactive();
 				}
 				else{
-					if($dt[0]['jabatan'] == 'staff' && $dt['departemen'] == 'bagian_umum')
+					if($dt[0]['departemen'] == 'bagian_umum')
 					{
 						redirect(base_url('dashboard'));
 					}
