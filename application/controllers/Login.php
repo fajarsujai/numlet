@@ -26,8 +26,8 @@ class Login extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required','xss_clean');
 
 		//Form validation message
-		$this->form_validation -> set_message ( 'required' ,  'Anda Tidak Boleh Mengosongkan Field!' );
-		$this->form_validation -> set_message ( 'xss_clean' ,  'Jangan coba-coba!' );
+		$this->form_validation->set_message( 'required' ,  'Anda Tidak Boleh Mengosongkan Field!' );
+		$this->form_validation->set_message( 'xss_clean' ,  'Jangan coba-coba!' );
 
 		if ($this->form_validation->run() == FALSE)
       	{
