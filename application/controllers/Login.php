@@ -21,19 +21,19 @@ class Login extends CI_Controller {
 
 	public function auth()
 	{
-		//Form validation rules
+		/*//Form validation rules
 		$this->form_validation->set_rules('email', 'Email', 'required','xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required','xss_clean');
 
 		//Form validation message
 		$this->form_validation->set_message( 'required' ,  'Anda Tidak Boleh Mengosongkan Field!' );
-		$this->form_validation->set_message( 'xss_clean' ,  'Jangan coba-coba!' );
+		$this->form_validation->set_message( 'xss_clean' ,  'Jangan coba-coba!' );*/
 
-		if ($this->form_validation->run() == FALSE)
+		/*if ($this->form_validation->run() == FALSE)
       	{
         	return $this->index();
       	}
-      	else {
+      	else {*/
       		$email = $this->input->post('email');
 			$password = $this->input->post('password');
 
@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 				$dt = $this->login_model->login_process($data)->result_array();
 				if($dt[0]['status'] == 0 )
 				{
-					return $this->notactive();
+					redirect(base_url('login/notactive'));
 				}
 				else{
 					if($dt[0]['departemen'] == 'bagian_umum')
@@ -62,8 +62,18 @@ class Login extends CI_Controller {
 
 			}
 			else {
-				return $this->index();
+				$this->session->set_flashdata('message', 'Email/Password Salah!');
+				redirect(base_url());
 			}
-      	}
+      	#}
+	}
+
+	public function nonactive()
+	{
+		$data = [
+			"p_title" 	=> "Akun Nonaktif | Sistem Informasi Surat Keluar",
+			"p_content"	=> "pages/pnonactive" 
+		];
+		$this->load->view('layout/layout_form',$data);
 	}
 }

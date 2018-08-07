@@ -4,7 +4,7 @@
     	<script src="<?php echo base_url(); ?>vendors/bootstrap-notify.min.js"></script>
 
     	<?php 
-    		if(null != form_error('email') || null!=form_error('password')){
+    		if(isset($this->session->message)){
     	?>
     	<script type="text/javascript">
 			$(document).ready(function(){
