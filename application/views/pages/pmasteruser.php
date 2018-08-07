@@ -10,171 +10,18 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama User</th>
+                                <th>NIP</th>
+                                <th>Nama</th>
                                 <th>Email</th>
-                                <th>Tanggal Registrasi</th>
-                                <th>Status</th>
+                                <th>Jabatan, Departemen</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <a href="#myModal" data-toggle="modal" class="btn btn-mini btn-info" ><i class="icon-search icon-white"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Sujai</td>
-                                <td>Sujai@student.unsika.ac.id</td>
-                                <td>18-08-2018</td>
-                                <td>Belum disetujui</td>
-                                <td><button class="btn btn-mini btn-primary"><i class="icon-ok icon-white"></i></button> <button class="btn btn-mini btn-danger"><i class="icon-remove icon-white"></i></button> <button class="btn btn-mini btn-info"><i class="icon-search icon-white"></i></button></td>
-                            </tr>
 
                             
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                        </tfoot> 
+                        
                     </table>
 									
                 </div>
