@@ -2,6 +2,7 @@
 
   <form action="<?php echo base_url(); ?>Register/registration" id="form_sample_1" class="form-signin"  method="post">
       <h2 class="form-signin-heading" style="text-align: center;">Daftar</h2>
+        <input type="hidden" name="level" value="0">
         <div class="control-group">
           <label class="control-label">Name<span class="required">*</span></label>
           <div class="controls">
