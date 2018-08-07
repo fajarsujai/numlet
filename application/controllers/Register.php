@@ -50,7 +50,8 @@ class Register extends CI_Controller {
 				$nip = $_POST['nip'];
 				$departemen = $_POST['departemen'];
 				$jabatan = $_POST['jabatan'];
-        //md5 hashing algorithm to decode and encode input password
+				$level = $_POST['level'];
+				//md5 hashing algorithm to decode and encode input password
         //$salt    = uniqid(rand(10,10000000),true);
      $saltid   = md5($email);
      $status   = 0;
@@ -62,7 +63,8 @@ class Register extends CI_Controller {
 				 'nip' => $nip,
 				 'departemen' => $departemen,
 				 'jabatan' => $jabatan,
-         'status' => $status);
+         'status' => $status,
+			 		'level' => $level);
 
 
      if($this->register_model->insertuser($data))
