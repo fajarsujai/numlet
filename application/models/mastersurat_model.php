@@ -123,4 +123,9 @@ class Mastersurat_model extends CI_Model
         $this->db->where('id_srt',$id);
         return $this->db->get('t_n_srt')->result_array();
     }
+    function get_new_surat()
+    {
+        $this->db->query('ORDER BY UNIX_TIMESTAMP(waktu_dibuat) DESC');
+        $this->db->get(t_n_srt)->result_array();
+    }
 }

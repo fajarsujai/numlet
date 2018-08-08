@@ -16,6 +16,7 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
+		$surat_baru = $this->mastersurat_model->get_new_surat();
 		$data = [
 			"p_title" 	=> "Dashboard | Sistem Informasi Surat Keluar",
 			"p_content"	=> "pages/pdashboard",
@@ -198,16 +199,23 @@ class Dashboard extends CI_Controller {
         $data = array();
         $no = $_POST['start'];
         foreach ($list as $field) {
+        	if($field->status == 0){
+        		$status = ' <span class="label">Nonaktif</span>';
+        		$action = '<a class="btn btn-sm btn-success m-1" href="javascript:void(0)" title="Aktivasi" onclick="aktivasi_user('."'".$field->id."'".')"><i class="icon-ok icon-white"></i></a>';
+        	}
+        	elseif ($field->status == 1) {
+        		$status = ' <span class="label label-info">Aktif</span>';
+        		$action = '<a class="btn btn-sm btn-danger m-1" href="javascript:void(0)" title="Nonaktifkan" onclick="nonaktif_user('."'".$field->id."','0'".')"><i class="icon-remove icon-white"></i></a>';
+        	}
             $no++;
             $row = array(); 
             
             $row[] = $no;
-            $row[] = $field->nip;
+            $row[] = $field->nip.$status;
             $row[] = $field->nama_user;
             $row[] = $field->email;
-            $row[] = $field->departemen;
-            $row[] = $field->jabatan;
-            $row[] = $field->status;
+            $row[] = $field->jabatan.', '.$field->departemen;
+            $row[] = $action;
                 
             $data[] = $row;
             
@@ -220,6 +228,43 @@ class Dashboard extends CI_Controller {
         );
         //output dalam format JSON
         echo json_encode($output);
+	}
+	function api_user()
+	{
+		$action = $this->input->get('action');
+		//AKTIVASI USER
+		if($action == 'aktivasi'){
+			$id = $this->input->get('id');
+			if($this->masteruser_model->aktivasi($id) == 'success')
+			{
+				$data = [
+					'message' => 'Konfirmasi Sukses'
+				];
+			}
+			else {
+				$data = [
+					'message' => 'Konfirmasi Gagal'
+				];
+			}
+			echo json_encode($data);
+		}
+		//NONAKTIFKAN USER
+		elseif ($action == 'nonaktif') {
+			$id = $this->input->get('id');
+			if($this->masteruser_model->nonaktif($id) == 'success')
+			{
+				$data = [
+					'message' => 'Tolak Sukses'
+				];
+			}
+			else {
+				$data = [
+					'message' => 'Tolak Gagal'
+				];
+			}
+			echo json_encode($data);
+		}
+
 	}
 	public function profil()
 	{
