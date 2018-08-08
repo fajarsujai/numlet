@@ -42,8 +42,8 @@ class Dashboard extends CI_Controller {
             $id = $field->id_srt;
             $nama = $this->mastersurat_model->get_user($id)->result_array();
             $nama = $nama[0]['nama_user'];
-            $row = array(); 
-            
+            $row = array();
+
             $row[] = $no;
             $row[] = $field->no_surat;
             $row[] = $nama;
@@ -54,9 +54,9 @@ class Dashboard extends CI_Controller {
                 <a class="btn btn-sm btn-danger m-1" href="javascript:void(0)" title="Tolak!" onclick="tolak_surat('."'".$field->id_srt."','0'".')"><i class="icon-remove icon-white"></i></a>
                 <a class="btn btn-sm btn-primary m-1" href="javascript:void(0)" title="Detail" onclick="detail_surat('."'".$field->id_srt."'".')"><i class="icon-info-sign icon-white"></i></a>
                         ';
-                
+
             $data[] = $row;
-            
+
         }
         $output = array(
             "draw" => $_POST['draw'],
@@ -102,8 +102,8 @@ class Dashboard extends CI_Controller {
         $no = $_POST['start'];
         foreach ($list as $field) {
             $no++;
-            $row = array(); 
-            
+            $row = array();
+
             $row[] = $no;
             $row[] = $field->nip;
             $row[] = $field->nama_user;
@@ -111,9 +111,9 @@ class Dashboard extends CI_Controller {
             $row[] = $field->departemen;
             $row[] = $field->jabatan;
             $row[] = $field->status;
-                
+
             $data[] = $row;
-            
+
         }
         $output = array(
             "draw" => $_POST['draw'],
