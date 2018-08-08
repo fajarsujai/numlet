@@ -85,16 +85,42 @@ class Mastersurat_model extends CI_Model
     public function konfirmasi($id)
     {
         $data = [
-            'status' => 1
+            'status' => 1,
+            'waktu_konfir' => date('Y-m-d H:i:s')
         ];
-        $this->db->where('id',$id);
+        $this->db->where('id_srt',$id);
         $do = $this->db->update('t_n_srt',$data);
         if($do)
         {
-            echo "success";
+            return "success";
         }
         else {
-            echo "false";
+            return "false";
         }
+    }
+    public function tolak($id)
+    {
+        $data = [
+            'status' => 2,
+        ];
+        $this->db->where('id_srt',$id);
+        $do = $this->db->update('t_n_srt',$data);
+        if($do)
+        {
+            return "success";
+        }
+        else {
+            return "false";
+        }
+    }
+    function update_data($data,$id)
+    {
+        $this->db->where('id_srt',$id);
+        return $this->db->update('t_n_srt',$data);
+    }
+    public function detail($id)
+    {
+        $this->db->where('id_srt',$id);
+        return $this->db->get('t_n_srt')->result_array();
     }
 }
