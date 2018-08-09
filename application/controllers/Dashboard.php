@@ -32,7 +32,7 @@ class Dashboard extends CI_Controller {
 			}
 			$i++;
 		}
-		
+
 		$user_baru = $this->masteruser_model->get_new_user()->result_array();
 		$banyak_user = $this->masteruser_model->get_new_user()->num_rows();
 
@@ -80,7 +80,7 @@ class Dashboard extends CI_Controller {
         $no = $_POST['start'];
         foreach ($list as $field) {
             $no++;
-            $id = $field->pembuat;
+            $id = $field->id_srt;
             $nama = $this->mastersurat_model->get_user($id)->result_array();
             $nama = $nama[0]['nama_user'];
 
@@ -103,8 +103,8 @@ class Dashboard extends CI_Controller {
             	$status = ' <span class="label label-important">Ditolak</span>';
             	$no_dis = 'disabled="true"';
             }
-            $row = array(); 
-            
+            $row = array();
+
 
             $row[] = $no;
             $row[] = $field->no_surat.$status;
@@ -116,7 +116,7 @@ class Dashboard extends CI_Controller {
                 <a class="btn btn-sm btn-danger m-1" href="javascript:void(0)" title="Tolak!" onclick="tolak_surat('."'".$field->id_srt."','0'".')"><i class="icon-remove icon-white"></i></a>
                 <a class="btn btn-sm btn-primary m-1" href="javascript:void(0)" title="Detail" onclick="detail_surat('."'".$field->id_srt."'".')"><i class="icon-info-sign icon-white"></i></a>
                 <a class="btn btn-sm btn-primary m-1" href="edit_surat?id='.$field->id_srt.'" title="Edit" ><i class="icon-pencil icon-white"></i></a>';
-                
+
 
             $data[] = $row;
 
@@ -196,7 +196,7 @@ class Dashboard extends CI_Controller {
 	public function edit_surat()
 	{
 		$id = $this->input->get('id');
-		
+
 		if(null!==$this->input->get('process'))
 		{
 			$tujuan = $this->input->post('tujuan');
@@ -216,7 +216,7 @@ class Dashboard extends CI_Controller {
 				redirect(base_url('dashboard/mastersurat'));
 			}
 			else {
-				redirect(base_url('dashboard/mastersurat'));	
+				redirect(base_url('dashboard/mastersurat'));
 			}
 		}
 		else {
@@ -270,7 +270,7 @@ class Dashboard extends CI_Controller {
 
             $row[] = $field->jabatan.', '.$field->departemen;
             $row[] = $action;
-                
+
 
             $data[] = $row;
 
@@ -298,14 +298,14 @@ class Dashboard extends CI_Controller {
                 'smtp_port' => 465,
                 'smtp_user' => 'christ.16062@student.unsika.ac.id',
                 'smtp_pass' => 'memory543',
-                'mailtype'  => 'html', 
+                'mailtype'  => 'html',
                 'charset'   => 'iso-8859-1'
         		);
 
             $this->load->library('email', $config);
 				$this->email->from('christ.16062@student.unsika.ac.id', 'Your Name');
 				$this->email->to('christmemory5@gmail.com');
-				$this->email->set_newline("\r\n");   
+				$this->email->set_newline("\r\n");
 				$this->email->subject('Email Test');
 				$this->email->message('Testing the email class.');
 
@@ -317,7 +317,7 @@ class Dashboard extends CI_Controller {
 				$data = [
 					'message' => 'Konfirmasi Sukses'
 				];
-				
+
 			}
 			else {
 				$data = [
