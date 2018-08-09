@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js">
-    
+
     <head>
         <title><?php echo $p_title ?></title>
         <!-- Bootstrap -->

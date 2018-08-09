@@ -14,7 +14,7 @@ class Login extends CI_Controller {
 	{
 		$data = [
 			"p_title" 	=> "Login | Sistem Informasi Surat Keluar",
-			"p_content"	=> "pages/plogin" 
+			"p_content"	=> "pages/plogin"
 		];
 		$this->load->view('layout/layout_form',$data);
 	}
@@ -51,11 +51,27 @@ class Login extends CI_Controller {
 					redirect(base_url('login/notactive'));
 				}
 				else{
-					if($dt[0]['departemen'] == 'bagian_umum')
+					if($dt[0]['level'] == 1)
 					{
+						$id = $this->login_model->get_userdata($email,$password);
+						$id = $id[0]['id'];
+						$data_session = [
+							"email" => $email,
+							"status" => "login",
+							"id" => $id
+						];
+						$this->session->set_userdata($data_session);
 						redirect(base_url('dashboard'));
 					}
 					else {
+						$id = $this->login_model->get_userdata($email,$password);
+						$id = $id[0]['id'];
+						$data_session = [
+							"email" => $email,
+							"status" => "login",
+							"id" => $id
+						];
+						$this->session->set_userdata($data_session);
 						redirect(base_url('home'));
 					}
 				}
@@ -72,8 +88,13 @@ class Login extends CI_Controller {
 	{
 		$data = [
 			"p_title" 	=> "Akun Nonaktif | Sistem Informasi Surat Keluar",
-			"p_content"	=> "pages/pnonactive" 
+			"p_content"	=> "pages/pnonactive"
 		];
 		$this->load->view('layout/layout_form',$data);
+	}
+
+	function logout(){
+		$this->session->sess_destroy();
+		redirect(base_url('login'));
 	}
 }

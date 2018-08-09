@@ -42,11 +42,11 @@
           <label class="control-label">Departemen<span class="required">*</span></label>
           <select name="departemen"  required data-required="1" class="span3 m-wrap">
             <option disabled selected>Pilih</option>
-            <option value="bagian_umum">Bagian Umum</option>
-           <option value="kemahasiswaan">Kemahasiswaan</option>
-           <option value="keuangan">Kuangan</option>
-           <option value="upt_tik">UPT TIK</option>
-           <option value="upt_bahasa">UPT Bahasa</option>
+            <option value="Bagian Umum">Bagian Umum</option>
+           <option value="Kemahasiswaan">Kemahasiswaan</option>
+           <option value="Keuangan">Kuangan</option>
+           <option value="UPT TIK">UPT TIK</option>
+           <option value="UPT Bahasa">UPT Bahasa</option>
          </select>
         </div>
         <div class="control-group">

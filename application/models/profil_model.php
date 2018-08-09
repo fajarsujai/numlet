@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class profil_model extends CI_Model
+class Profil_model extends CI_Model
 {
  	public function get_profile($id)
  	{
