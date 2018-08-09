@@ -86,6 +86,14 @@ class Home extends CI_Controller {
 				$no = $_POST['start'];
 				foreach ($list as $field) {
 					if($field->pembuat == $this->session->id){
+						if($field->status == '0')
+			            {
+			            	$field->no_surat = ' <span class="label">Belum Dilihat</span>';
+			            }
+			            elseif($field->status == '2')
+			            {
+			            	$field->no_surat = ' <span class="label label-important">Ditolak</span>';
+			            }
 						$no++;
 						$id = $field->pembuat;
 						$nama = $this->home_model->get_user($id)->result_array();
@@ -97,7 +105,7 @@ class Home extends CI_Controller {
 						$row[] = $nama;
 						$row[] = $field->perihal;
 						$row[] = $field->waktu_dibuat;
-						$row[] = 'rr
+						$row[] = '<a class="btn btn-sm btn-primary m-1" href="javascript:void(0)" title="Detail" onclick="detail_surat('."'".$field->id_srt."'".')"><i class="icon-info-sign icon-white"></i></a>
 						';
 
 						$data[] = $row;
