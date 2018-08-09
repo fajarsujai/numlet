@@ -1,3 +1,4 @@
+
         <div class="span9" id="content">
         <div class="row-fluid">
             <div class="span6">
@@ -5,7 +6,7 @@
                 <div class="block">
                     <div class="navbar navbar-inner block-header">
                         <div class="muted pull-left">Pengajuan Surat</div>
-                        <div class="pull-right"><span class="badge badge-info">5</span>
+                        <div class="pull-right"><span class="badge badge-info"><?php echo $banyak_surat; ?></span>
 
                         </div>
                     </div>
@@ -14,30 +15,24 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama</th>
-                                    <th>Departemen</th>
+                                    <th>Tujuan</th>
+                                    <th>Perihal</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    $no = 1;
+                                    foreach ($surat_baru as $sb) {
+                                    
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $sb['tujuan']; ?></td>
+                                    <td><?php echo $sb['perihal']; ?></td>
+                                    <td><?php echo $sb['status']; ?></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Vincent</td>
-                                    <td>Gabriel</td>
-                                    <td>@gabrielva</td>
-                                </tr>
+                                <?php $no++; } ?>
                             </tbody>
                         </table>
                     </div>
@@ -48,7 +43,7 @@
                 <div class="block">
                     <div class="navbar navbar-inner block-header">
                         <div class="muted pull-left">User Baru</div>
-                        <div class="pull-right"><span class="badge badge-info">1,234</span>
+                        <div class="pull-right"><span class="badge badge-info"><?php echo $banyak_user;  ?></span>
 
                         </div>
                     </div>
@@ -63,24 +58,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    $no = 1;
+                                    foreach ($user_baru as $ub) {
+                                    
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td><?php echo $no; ?></td>
+                                    <td><?php echo $ub['nama_user']; ?></td>
+                                    <td><?php echo $ub['nip']; ?></td>
+                                    <td><?php echo $ub['status']; ?></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Vincent</td>
-                                    <td>Gabriel</td>
-                                    <td>@gabrielva</td>
-                                </tr>
+                                <?php $no++; } ?>
                             </tbody>
                         </table>
                     </div>

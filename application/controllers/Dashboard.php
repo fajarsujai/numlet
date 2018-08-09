@@ -16,11 +16,50 @@ class Dashboard extends CI_Controller {
 	}
 	public function index()
 	{
-		$surat_baru = $this->mastersurat_model->get_new_surat();
+		$surat_baru = $this->mastersurat_model->get_new_surat()->result_array();
+		$banyak_surat = $this->mastersurat_model->get_new_surat()->num_rows();
+		$i = 0;
+		foreach ($surat_baru as $sb) {
+			if($sb['status'] == 0)
+			{
+				$surat_baru[$i]['status'] = "Belum dibaca";
+			}
+			elseif ($sb['status'] == 1) {
+				$surat_baru[$i]['status'] = "Sudah dikonfirmasi";
+			}
+			elseif ($sb['status'] == 2) {
+				$surat_baru[$i]['status'] = "Ditolak";
+			}
+			$i++;
+		}
+		
+		$user_baru = $this->masteruser_model->get_new_user()->result_array();
+		$banyak_user = $this->masteruser_model->get_new_user()->num_rows();
+
+		$a = 0;
+		foreach ($user_baru as $ub) {
+			if($ub['status'] == 0)
+			{
+				$user_baru[$a]['status'] = "Belum dikonfirmasi";
+			}
+			elseif ($ub['status'] == 1) {
+				$user_baru[$a]['status'] = "Aktif";
+			}
+			elseif ($ub['status'] == 2) {
+				$user_baru[$a]['status'] = "Nonaktif";
+			}
+			$a++;
+		}
+
+
 		$data = [
 			"p_title" 	=> "Dashboard | Sistem Informasi Surat Keluar",
 			"p_content"	=> "pages/pdashboard",
-			"n_active"  => "dashboard"
+			"n_active"  => "dashboard",
+			"surat_baru" => $surat_baru,
+			"user_baru" => $user_baru,
+			"banyak_user" => $banyak_user,
+			"banyak_surat" => $banyak_surat
 		];
 		$this->load->view('layout/layout_dashboard',$data);
 	}
@@ -47,14 +86,18 @@ class Dashboard extends CI_Controller {
             if($field->status == '0')
             {
             	$status = ' <span class="label">Belum Dilihat</span>';
+            	$no_dis = '';
+            	$field->no_surat = "Belum ada";
             }
             elseif($field->status == '1')
             {
             	$status = ' <span class="label label-success">Sudah dikonfirmasi</span>';
+            	$no_dis = 'disabled="true"';
             }
             elseif($field->status == '2')
             {
             	$status = ' <span class="label label-important">Ditolak</span>';
+            	$no_dis = 'disabled="true"';
             }
             $row = array(); 
             
@@ -64,7 +107,7 @@ class Dashboard extends CI_Controller {
             $row[] = $field->perihal;
             $row[] = $field->waktu_dibuat;
             $row[] = '
-                <a class="btn btn-sm btn-success m-1" href="javascript:void(0)" title="Konfirmasi" onclick="konfirmasi_surat('."'".$field->id_srt."'".')"><i class="icon-ok icon-white"></i></a>
+                <button class="btn btn-sm btn-success m-1" href="javascript:void(0)" title="Konfirmasi" onclick="konfirmasi_surat('."'".$field->id_srt."'".')" '.$no_dis.'><i class="icon-ok icon-white"></i></button>
                 <a class="btn btn-sm btn-danger m-1" href="javascript:void(0)" title="Tolak!" onclick="tolak_surat('."'".$field->id_srt."','0'".')"><i class="icon-remove icon-white"></i></a>
                 <a class="btn btn-sm btn-primary m-1" href="javascript:void(0)" title="Detail" onclick="detail_surat('."'".$field->id_srt."'".')"><i class="icon-info-sign icon-white"></i></a>
                 <a class="btn btn-sm btn-primary m-1" href="edit_surat?id='.$field->id_srt.'" title="Edit" ><i class="icon-pencil icon-white"></i></a>';
@@ -237,9 +280,32 @@ class Dashboard extends CI_Controller {
 			$id = $this->input->get('id');
 			if($this->masteruser_model->aktivasi($id) == 'success')
 			{
+				$config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'christ.16062@student.unsika.ac.id',
+                'smtp_pass' => 'memory543',
+                'mailtype'  => 'html', 
+                'charset'   => 'iso-8859-1'
+        		);
+
+            $this->load->library('email', $config);
+				$this->email->from('christ.16062@student.unsika.ac.id', 'Your Name');
+				$this->email->to('christmemory5@gmail.com');
+				$this->email->set_newline("\r\n");   
+				$this->email->subject('Email Test');
+				$this->email->message('Testing the email class.');
+
+				if($this->email->send()){
+					$data = [
+						'Email' => 'Kirim Sukses'
+					];
+				}
 				$data = [
 					'message' => 'Konfirmasi Sukses'
 				];
+				
 			}
 			else {
 				$data = [

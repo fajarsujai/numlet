@@ -82,11 +82,19 @@ class Mastersurat_model extends CI_Model
         $this->db->where('id',$id);
         return $this->db->get('t_n_usr');
     }
+    function get_last_num()
+    {
+        $this->db->select_max('no_surat');
+        return $this->db->get('t_n_srt')->result_array();
+    }
     public function konfirmasi($id)
     {
+        $no = $this->get_last_num();
+        $no = $no[0]['no_surat'] + 1;
         $data = [
             'status' => 1,
-            'waktu_konfir' => date('Y-m-d H:i:s')
+            'waktu_konfir' => date('Y-m-d H:i:s'),
+            'no_surat' => $no
         ];
         $this->db->where('id_srt',$id);
         $do = $this->db->update('t_n_srt',$data);
@@ -125,7 +133,6 @@ class Mastersurat_model extends CI_Model
     }
     function get_new_surat()
     {
-        $this->db->query('ORDER BY UNIX_TIMESTAMP(waktu_dibuat) DESC');
-        $this->db->get(t_n_srt)->result_array();
+        return $this->db->query('SELECT * FROM t_n_srt ORDER BY UNIX_TIMESTAMP(waktu_dibuat) DESC LIMIT 5');
     }
 }
