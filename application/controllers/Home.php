@@ -41,6 +41,7 @@ class Home extends CI_Controller {
 		$penerima	= $_POST['penerima'];
 		$perihal	= $_POST['perihal'];
 		$alamat		= $_POST ['alamat'];
+		$penanggungjwb = $_POST['penanggungjwb'];
 		$id = $this->session->id;
 
 		$data = array(
@@ -48,7 +49,9 @@ class Home extends CI_Controller {
 				'penerima_srt' => $penerima,
 				'perihal' => $perihal,
 				'alamat' => $alamat,
-				'pembuat' => $id
+				'pembuat' => $id,
+				'waktu_dibuat' => date('Y-m-d H:i:s'),
+				'pngjwb' => $penanggungjwb
 				);
 
 		if($this->home_model->insertAjukan($data)){

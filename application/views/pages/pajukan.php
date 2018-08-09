@@ -12,6 +12,8 @@
 					<input type="text" class="input-block-level span4" placeholder="Penerima" name="penerima">
 					<label>Perihal</label>
 					<input type="text" class="input-block-level span4" placeholder="Perihal" name="perihal">
+					<label>Penanggung Jawab</label>
+					<input type="text" class="input-block-level span4" placeholder="Penanggung Jawab" name="penanggungjwb">
 					<label>Alamat</label>
 					<textarea class="span4" id="" cols="30" rows="10"  class="input-block-level span4" name="alamat"></textarea>
 					<br>
