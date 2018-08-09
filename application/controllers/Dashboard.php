@@ -80,7 +80,7 @@ class Dashboard extends CI_Controller {
         $no = $_POST['start'];
         foreach ($list as $field) {
             $no++;
-            $id = $field->id_srt;
+            $id = $field->pembuat;
             $nama = $this->mastersurat_model->get_user($id)->result_array();
             $nama = $nama[0]['nama_user'];
 
