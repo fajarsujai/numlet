@@ -83,10 +83,10 @@ class Dashboard extends CI_Controller {
             $id = $field->id_srt;
             $nama = $this->mastersurat_model->get_user($id)->result_array();
             $nama = $nama[0]['nama_user'];
-<<<<<<< HEAD
+
             $row = array();
 
-=======
+
             if($field->status == '0')
             {
             	$status = ' <span class="label">Belum Dilihat</span>';
@@ -105,7 +105,7 @@ class Dashboard extends CI_Controller {
             }
             $row = array(); 
             
->>>>>>> 638380a5f22192ad4c5533455165315663ee5ba0
+
             $row[] = $no;
             $row[] = $field->no_surat.$status;
             $row[] = $nama;
@@ -115,13 +115,9 @@ class Dashboard extends CI_Controller {
                 <button class="btn btn-sm btn-success m-1" href="javascript:void(0)" title="Konfirmasi" onclick="konfirmasi_surat('."'".$field->id_srt."'".')" '.$no_dis.'><i class="icon-ok icon-white"></i></button>
                 <a class="btn btn-sm btn-danger m-1" href="javascript:void(0)" title="Tolak!" onclick="tolak_surat('."'".$field->id_srt."','0'".')"><i class="icon-remove icon-white"></i></a>
                 <a class="btn btn-sm btn-primary m-1" href="javascript:void(0)" title="Detail" onclick="detail_surat('."'".$field->id_srt."'".')"><i class="icon-info-sign icon-white"></i></a>
-<<<<<<< HEAD
-                        ';
-
-=======
                 <a class="btn btn-sm btn-primary m-1" href="edit_surat?id='.$field->id_srt.'" title="Edit" ><i class="icon-pencil icon-white"></i></a>';
                 
->>>>>>> 638380a5f22192ad4c5533455165315663ee5ba0
+
             $data[] = $row;
 
         }
@@ -267,16 +263,15 @@ class Dashboard extends CI_Controller {
             $row[] = $field->nip.$status;
             $row[] = $field->nama_user;
             $row[] = $field->email;
-<<<<<<< HEAD
-            $row[] = $field->departemen;
-            $row[] = $field->jabatan;
-            $row[] = $field->status;
 
-=======
+            $row[] = $field->departemen.','.$field->jabatan;
+            $row[] = $action;
+
+
             $row[] = $field->jabatan.', '.$field->departemen;
             $row[] = $action;
                 
->>>>>>> 638380a5f22192ad4c5533455165315663ee5ba0
+
             $data[] = $row;
 
         }
