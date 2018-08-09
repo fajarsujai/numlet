@@ -5,15 +5,15 @@
 	            <div class="muted pull-left">Ajukan surat</div>
 	        </div>
 			<div class="block-content collapse in" style="padding: 10px">
-				<form action="sdad">
+				<form action="<?php echo base_url(); ?>Home/postAjukan" method="post" autocomplete="off">
 					<label>Tujuan</label>
-					<input type="text" class="input-block-level span4" placeholder="Tujuan">
+					<input type="text" class="input-block-level span4" placeholder="Tujuan" name="tujuan">
 					<label>Penerima</label>
-					<input type="text" class="input-block-level span4" placeholder="Penerima">
+					<input type="text" class="input-block-level span4" placeholder="Penerima" name="penerima">
 					<label>Perihal</label>
-					<input type="text" class="input-block-level span4" placeholder="Perihal">
+					<input type="text" class="input-block-level span4" placeholder="Perihal" name="perihal">
 					<label>Alamat</label>
-					<textarea name="sdss" class="span4" id="" cols="30" rows="10"  class="input-block-level span4"></textarea>
+					<textarea class="span4" id="" cols="30" rows="10"  class="input-block-level span4" name="alamat"></textarea>
 					<br>
 					<input class="input-block-level btn btn-primary span4" type="submit" value="Ajukan"></input>
 				</form>
