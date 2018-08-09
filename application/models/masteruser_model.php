@@ -76,4 +76,35 @@ class Masteruser_model extends CI_Model
     }
     //DATATABLES
 
+    public function aktivasi($id)
+    {
+        $data = [
+            'status' => 1
+        ];
+        $this->db->where('id',$id);
+        $do = $this->db->update('t_n_usr',$data);
+        if($do)
+        {
+            return "success";
+        }
+        else {
+            return "false";
+        }
+    }
+    public function nonaktif($id)
+    {
+        $data = [
+            'status' => 0
+        ];
+        $this->db->where('id',$id);
+        $do = $this->db->update('t_n_usr',$data);
+        if($do)
+        {
+            return "success";
+        }
+        else {
+            return "false";
+        }
+    }
+
 }
