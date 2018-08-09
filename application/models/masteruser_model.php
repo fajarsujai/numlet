@@ -106,5 +106,11 @@ class Masteruser_model extends CI_Model
             return "false";
         }
     }
+    function get_new_user()
+    {
+        $this->db->order_by('id','DESC');
+        $this->db->limit('5');
+        return $this->db->get('t_n_usr');
+    }
 
 }
